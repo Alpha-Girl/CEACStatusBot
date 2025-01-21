@@ -17,18 +17,19 @@ class NotificationManager():
     def send(self,) -> None:
         res = query_status(self.__location, self.__number, self.__passport_number, self.__surname, self.__captchaHandle)
 
-        if res['status'] == "Refused":
-            import os,pytz,datetime
-            try:
-                TIMEZONE = os.environ["TIMEZONE"]
-                localTimeZone = pytz.timezone(TIMEZONE)
-                localTime = datetime.datetime.now(localTimeZone)
-            except pytz.exceptions.UnknownTimeZoneError:
-                print("UNKNOWN TIMEZONE Error, use default")
-                localTime = datetime.datetime.now()
-            except KeyError:
-                print("TIMEZONE Error")
-                localTime = datetime.datetime.now()
+        # if res['status'] == "Refused":
+        #     pass
+            # import os,pytz,datetime
+            # try:
+            #     TIMEZONE = os.environ["TIMEZONE"]
+            #     localTimeZone = pytz.timezone(TIMEZONE)
+            #     localTime = datetime.datetime.now(localTimeZone)
+            # except pytz.exceptions.UnknownTimeZoneError:
+            #     print("UNKNOWN TIMEZONE Error, use default")
+            #     localTime = datetime.datetime.now()
+            # except KeyError:
+            #     print("TIMEZONE Error")
+            #     localTime = datetime.datetime.now()
 
             # if localTime.hour < 8 or localTime.hour > 22:
             #     print("In Manager, no disturbing time")
